@@ -7,15 +7,13 @@ This repository contains a cleaned code companion for the IEEE TIV work:
 
 The project studies how a smart vehicle can use neighbouring vehicles for sensing and processing under unreliable V2V links, queueing delay, and task deadlines. The paper formulates the problem using contextual bandits (CB), Markov decision processes (MDP), and deep Q-networks (DQN), and compares them with local-processing and offload-only baselines.
 
-## What this cleaned version contains
+## What this version contains
 
 - A small, import-safe Python package under `src/pandsvn_drl/`.
 - A TensorFlow 2 DQN agent implementation.
 - A lightweight gym-style vehicular sensing/processing simulator for smoke tests and future extension.
 - A replay buffer, configuration object, metrics utilities, and training script.
 - Original code should be preserved under `legacy/` if available.
-
-This refactor is meant to make the repository readable and runnable. It is not yet a full reproduction package for every figure in the paper.
 
 ## Paper setup summarized
 
@@ -57,7 +55,11 @@ The paper considers:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+
+pip install --upgrade pip
 pip install -r requirements.txt
+pip install -e .
+
 ```
 
 For a quick import/simulation check without TensorFlow:
