@@ -1,28 +1,18 @@
-from pathlib import Path
-import sys
-
-import numpy as np
-
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-
-from pandsvn_drl import DQNConfig, ReplayBuffer, build_dqn
-from pandsvn_drl.replay_buffer import Transition
+from pandsvn_drl import EnvConfig, VehicularSensingEnv, ReplayBuffer
 
 
 def main() -> None:
-    cfg = DQNConfig(num_neighbors=2, hidden_units=32, replay_capacity=100)
-    model = build_dqn(cfg.state_dim, cfg.action_dim, cfg.hidden_units)
-
-    state = np.zeros((1, cfg.state_dim), dtype=np.float32)
-    q_values = model.predict(state, verbose=0)
-    assert q_values.shape == (1, cfg.action_dim)
-
-    buffer = ReplayBuffer(capacity=cfg.replay_capacity)
-    buffer.add(Transition(state=state[0], action=0, reward=1.0, next_state=None, done=True))
-    assert len(buffer.sample(1)) == 1
-
+    env = VehicularSensingEnv(EnvConfig(seed=123))
+    state = env.reset()
+    assert state.shape[0] == env.state_dim
+    action = env.encode_action([0] * env.config.num_neighbors)
+    next_state, reward, done, _ = env.step(action)
+    buffer = ReplayBuffer(capacity=10, seed=123)
+    buffer.add(state, action, reward, next_state, done)
+    batch = buffer.sample(1)
+    assert batch.states.shape[0] == 1
     print("Smoke test passed.")
+    print(f"state_dim={env.state_dim}, num_actions={env.num_actions}, reward={reward:.2f}")
 
 
 if __name__ == "__main__":

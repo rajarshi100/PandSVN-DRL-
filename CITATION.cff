@@ -1,12 +1,11 @@
 cff-version: 1.2.0
-title: "Joint Sensing and Processing Resource Allocation in Vehicular Ad-Hoc Networks"
-message: "If you use this code, please cite the associated IEEE Transactions on Intelligent Vehicles paper."
+title: "PandSVN-DRL: Joint Sensing and Processing in Vehicular Networks"
+message: "If you use this code, please cite the associated IEEE TIV paper."
 authors:
   - family-names: Chattopadhyay
     given-names: Rajarshi
   - family-names: Tham
     given-names: Chen-Khong
-doi: 10.1109/TIV.2021.3124208
 year: 2023
 preferred-citation:
   type: article
@@ -22,4 +21,3 @@ preferred-citation:
   start: 616
   end: 627
   year: 2023
-  doi: 10.1109/TIV.2021.3124208
