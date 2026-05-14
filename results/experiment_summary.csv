@@ -1,14 +1,6 @@
-Component,Setting
-Highway length,100 km
-Road layout,Three-lane straight highway
-Vehicle speed range,40-100 km/h
-Neighbouring vehicles for DQN_7,7
-Regions of interest for DQN_7,8
-Neighbouring vehicles for CB_3/MDP_3,3
-Regions of interest for CB_3/MDP_3,3
-Training episodes,1950
-Steps per episode,600
-Validation samples,2000
-Schemes compared,L_7; O_7; CB_3; MDP_3; DQN_7
-Performance metrics,Total utility; sensors activated; tasks dropped; tasks missing deadline
-Main reported outcome,DQN_7 achieves higher total utility than local-processing and offload-only baselines and scales beyond CB/MDP settings
+scheme,neighbors,rois,description
+L_7,7,8,Local processing baseline; raw sensor data is sent to user vehicle.
+O_7,7,8,Offload baseline; neighboring vehicles process sensor data and send results.
+CB_3,3,3,Contextual-bandit policy over selected RoIs.
+MDP_3,3,3,MDP policy over selected RoIs.
+DQN_7,7,8,DQN policy over 7 neighboring vehicles and 8 RoIs.

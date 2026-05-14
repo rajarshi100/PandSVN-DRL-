@@ -1,7 +1,7 @@
-"""Utilities for joint sensing and processing in vehicular ad-hoc networks."""
+"""Utilities for DQN-based joint sensing and processing in vehicular networks."""
 
-from .config import DQNConfig
-from .dqn_model import build_dqn
-from .replay_buffer import ReplayBuffer
+from .config import EnvConfig, DQNConfig
+from .environment import VehicularSensingEnv
+from .memory import ReplayBuffer
 
-__all__ = ["DQNConfig", "build_dqn", "ReplayBuffer"]
+__all__ = ["EnvConfig", "DQNConfig", "VehicularSensingEnv", "ReplayBuffer"]
