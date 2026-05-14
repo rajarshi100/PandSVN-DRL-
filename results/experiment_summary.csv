@@ -1,0 +1,14 @@
+Component,Setting
+Highway length,100 km
+Road layout,Three-lane straight highway
+Vehicle speed range,40-100 km/h
+Neighbouring vehicles for DQN_7,7
+Regions of interest for DQN_7,8
+Neighbouring vehicles for CB_3/MDP_3,3
+Regions of interest for CB_3/MDP_3,3
+Training episodes,1950
+Steps per episode,600
+Validation samples,2000
+Schemes compared,L_7; O_7; CB_3; MDP_3; DQN_7
+Performance metrics,Total utility; sensors activated; tasks dropped; tasks missing deadline
+Main reported outcome,DQN_7 achieves higher total utility than local-processing and offload-only baselines and scales beyond CB/MDP settings
