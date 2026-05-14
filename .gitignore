@@ -11,3 +11,4 @@ wandb/
 *.h5
 *.keras
 *.ckpt
+.venv/
